@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"name": "fourth-slide",
+"features": [
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Point", "coordinates": [ 26.547278, -11.054972 ] } }
+]
+}

@@ -1,0 +1,22 @@
+{
+"type": "FeatureCollection",
+"name": "second-slide",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "DsgAttr02": "Silver" }, "geometry": { "type": "Point", "coordinates": [ 28.271713, -8.892047 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Silver" }, "geometry": { "type": "Point", "coordinates": [ 29.233426, -8.302902 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Gold" }, "geometry": { "type": "Point", "coordinates": [ 29.581281, 3.111281 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Diamond" }, "geometry": { "type": "Point", "coordinates": [ 23.618966, -6.176131 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Gold" }, "geometry": { "type": "Point", "coordinates": [ 30.172654, 1.974377 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Diamond" }, "geometry": { "type": "Point", "coordinates": [ 20.688752, -6.163792 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Diamond" }, "geometry": { "type": "Point", "coordinates": [ 22.373182, -5.828906 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Diamond" }, "geometry": { "type": "Point", "coordinates": [ 23.530691, -6.16147 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Gold" }, "geometry": { "type": "Point", "coordinates": [ 26.698271, -3.570961 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Gold" }, "geometry": { "type": "Point", "coordinates": [ 28.78578, -0.47775 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Gold" }, "geometry": { "type": "Point", "coordinates": [ 28.7305, -4.743778 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Gold" }, "geometry": { "type": "Point", "coordinates": [ 29.19615, -5.878879 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Gold" }, "geometry": { "type": "Point", "coordinates": [ 27.554395, -4.007299 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Diamond" }, "geometry": { "type": "Point", "coordinates": [ 23.362973, -6.28983 ] } },
+{ "type": "Feature", "properties": { "DsgAttr02": "Gold" }, "geometry": { "type": "Point", "coordinates": [ 28.742186, -2.872563 ] } }
+]
+}

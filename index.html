@@ -2,32 +2,144 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
-    <!-- Leaflet Styles --> 
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-     <!-- Fonts: Inter & Quicksand-->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <!-- Your font links -->
 </head>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <!-- Your font links -->
+</head>
 <body>
     <main>
+        <!-- 1. Title Section -->
         <div id="title-container">
-        <h1 id="title">Cobalt: From Mines to Mobiles</h1>
-        <h4 id= "subtitle">How the plunder of the Democratic Republic of Congo powers the world.</h4>
+            <h1 id="title">Cobalt: From Mines to Mobiles</h1>
+            <h4 id="subtitle">How the plunder of the Democratic Republic of Congo powers the world.</h4>
         </div>
 
+        <!-- 2. Fixed Image and Map Elements -->
+        <div class="image-container">
+            <img id="story-image" src="" alt="Story image">
+        </div>
 
-        <div id ="map-container">
-        <div id="map"></div>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+
+        <!-- 3. Unified Slide Section -->
+        <div class="slide-section">
+            <!-- Image slides first -->
+            <div class="slide" data-type="image" id="photo1" data-format="jpeg">
+                <h2>Cobalt is a key component in Lithium-ion batteries</h2>
+                <p>Today, Li-ion batteries power all of consumer electronics such as electric cars and mobile phones.</p>
+            </div>
+            
+            <div class="slide" data-type="image" id="photo2" data-format="gif">
+                <h2>Li-ion batteries work by moving Lithium ions between a cathode and an anode</h2>
+                <p>When the battery is charging, the ions move from positive to negative...</p>
+            </div>
+
+            <div class="slide" data-type="image" id="photo3" data-format="svg">
+                <h2>An energy-dense and stable element, cobalt allows these batteries to be stable and portable.</h2>
+                <p>Cobalt's compatibility with modern electronics stems from its unique properties...</p>
+            </div>
+
+            <div class="slide" data-type="image" id="photo4" data-format="png">
+                <h2>Today much of the world's cobalt comes from the Democratic Republic of Congo</h2>
+                <p>A mineral rich region that has supported new technologies for the last 100 years at a very high human cost.</p>
+            </div>
+
+            <!-- Map slides after -->
+            <article class="slide" data-type="map" id="title-slide">
+                <h2>The DRC is one of the richest countries in terms of mineral wealth and its abundance has supported the world's technological developments for the last 100 years.</h2>
+                <p>When King Leopold II began Belgium's brutal reign of the regions near the basin of the Congo River in 1885, he did so to control the region's supply of ivory and rubber.</p>
+                <p>An inhumane regime of forced labour imposed by the Belgians in the region meant that by 1903, the "Congo Free State" was the largest supplier of rubber in the world, providing 5.9 thousand metric tons of rubber, just in time to support the European demand for automobile and bicycle tires.</p>
+                <div class="mapimagecont" id="slide1cont">
+                    <div class="imageslide1" id="punchimg">
+                        <img src="img/img1.jpg" alt="King Leopold" class="gallery-img"/>
+                        <p class="image-credit">King Leopold's cruelty shocked even his contemporaries, as highlighted by this political cartoon of the era depicting King Leopold as snake attacking a rubber collector. Source: Wikipedia Commons</p>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="slide" data-type="map" id="second-slide">
+                <h2>Though prices of rubber eventually fell due to competition from the Asian colonies, the discovery of DRC's mineral wealth by the Belgians ensured that European interest in the region would continue.</h2>
+                <p><b>Gold, Silver, and Diamond</b> deposits in the region enriched the coffers of Belgium and England. Following the devastation of the First World War, European powers were keenly aware of the importance of DRC's wealth in their economic recovery, as highlighted by Louis Frank, the Belgian Minister of the Colonies in 1924:</p>
+                <blockquote><p>"The valuable deposits are worked to their <b>best economical possibilities</b>, and with due care for the native population...The Congo has <b>enormous potential wealth</b>. It has a <b>great future</b>. It certainly add a splendid asset to the possessions and credit of Belgium."</p></blockquote>
+            </article>
+            
+            <article class="slide" data-type="map" id="third-slide">
+                <h2>From the first cars to the first telegraph wires, new technology always brought new mineral interests to the DRC.</h2>
+                <p>With growing electrification increasing the demand for copper wiring, <b>Copper</b> became the country's leading export. Today, the DRC is the second largest producer of Copper, behind Chile.</p>
+            </article>
+
+            <article class="slide" data-type="map" id="fourth-slide">
+                <h2>The DRC has been present at the periphery in almost every significant event of the 20th century—when the mushroom cloud fell on Hiroshima killing a hundred and forty thousand civilians, it did so thanks to Congolese uranium.</h2>
+                <p>The mine of Shinkolobwe provided <b>uranium</b> ores of such high grade for the nuclear age that it was called "a freak occurrence in nature" by Colonel Nichols, an officer assigned to the Manhattan project.</p>
+                <p>For the next half century, access to this mine became a question of key geopolitical importance for anyone looking to establish their nuclear program while the local Congolese miners dealt with the effects of radioactive exposure.</p>
+                <iframe width="400" height="315" src="https://www.youtube.com/embed/jQeQ0Pl6EmY?si=xl1QGlJGeFSjRU_q&amp;start=1038" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </article>
+
+            <article class="slide" data-type="map" id="fifth-slide">
+                <h2>Most of this mineral wealth is found in the south-east region of DRC known as Katanga</h2>
+                <p>Alongside copper, gold, silver, and uranium Katanga also had deposits of tin, germanium, radium, zinc, lithium, cadmium, and manganese.</p>
+            </article>
+
+            <article class="slide" data-type="map" id="sixth-slide">
+                <h2>It is hence not surprising that control over Katanga remains a priority for politicians, militias, international conglomerates, and secret service agencies.</h2>
+                <p>When Patrice Lumumba, DRC's first democratically elected leader, challenged Western mining interests, the mineral-rich province of Katanga was pushed into secession.</p>
+                <p>Subsequently, when Lumumba was overthrown in a US and Belgium backed coup, he was handed over to Belgian militias and Katangan secessionists in Elizabethville (today Lubumbashi) to be violently tortured and executed. The UN Peace keeping force stationed in the region alongside western media outlets just watched.</p>
+                <iframe width="400" height="315" src="https://www.youtube.com/embed/4D0y4PaJH4M?si=tGbAkr03GrB1lBhI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </article>
+
+            <article class="slide" data-type="map" id="seventh-slide">
+                <h2>Today, Katanga again finds itself as an integral part of the global supply chain thanks to its large and abundant deposits of cobalt.</h2>
+                <p>Somewhere around 30% of the world's total <b>cobalt</b> supply lies in this region, at depths so shallow that is can be extracted by anyone with a shovel.</p>
+                <p>While large industrial sites run by Congolese and Chinese partnership dominate Katanga's formal mining sector, the region is also home to countless smaller, illegal, "artisanal mines".</p>
+                <p>It is in these "artisanal" mines where most of Katanga's men, women, and children work in extreme conditions, breathing toxic cobalt dust to provide the essential ingredient for the renewable transformation.</p>
+                <p>Though big tech companies claim to avoid artisanal mines in their cobalt sourcing, in practice, all artisanal cobalt gets integrated to the "formal" supply chain via intermediaries.</p>
+                <p>Claims of independent audits by big tech company ring false—in a country where the last census was done in 1984, it is difficult to even obtain population estimates let alone a complete inventory of "artisanal" mines. As a result, it is impossible to have any cobalt exported from the DRC that is "ethically sourced".</p>
+            </article>
+
+            <article class="slide" data-type="map" id="eigth-slide">
+                <h2>Once the intermediaries have sold the artisanal cobalt ore to wholesale sellers, they undergo a first step processing in local industrial factories.</h2>
+                <p><b>Cobalt processing factories</b> operate under no environmental legislation and as a result often dump toxic by-products indiscriminately. Villagers living in the copper belts of Zambia and DRC often drink the water from polluted streams, and breathe toxic dust with 1000 times higher impurities than recommended by WHO.</p>
+                <p>Despite producing one of the most essential components for electrification, DRC does not have enough electricity to process its minerals in large scale. Only 19% of the country is electrified with rural areas lagging significantly behind at 2% electrification.</p>
+                <iframe width="400" height="315" src="https://www.youtube.com/embed/WNYemuiAOfU?si=fXQabbxh5l6hnLNp&amp;start=974" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </article>
+
+            <article class="slide" data-type="map" id="ninth-slide">
+                <h2>Lack of infrastructure in the DRC means that most of the actual cobalt refinement is done in facilities of the Developed World.</h2>
+                <p>Around 65% of current <b>cobalt refinement</b> (mostly sourced from DRC) is done in China followed by Finland (11%) Belgium (5%) and Canada (5%). The few refinement facilities in DRC do not produce cobalt of sufficient high quality for industrial use and needs to be further processed abroad.</p>
+            </article>
+
+            <article class="slide" data-type="map" id="tenth-slide">
+                <h2>Cobalt's supply chain ends in factories that manufacture the electric goods that power our lives</h2>
+                <p>From Asia to Europe to the US, cobalt from the DRC is used in Lithium-Ion batteries that are essential for all electric goods from cars to phones.</p>
+                <p>And with that, the Congolese people once again keep the world's newest technology running at the cost of their exploitation, as they have for the last 100 years.</p>
+            </article>
+
+            <article class="slide" id="sources">
+                <h2>Sources and Acknowledgement</h2>
+                <p>Geographic data about the steps in the cobalt supply chain is available thanks to the work of Resource Matters. Their work highlight the links in the global cobalt supply chain and is incredibly important towards raising awareness. We encourage all our readers to explore their full visualization <a href="https://supplychains.resourcematters.org/explore">here.</a></p>
+                <p>Cobalt Intro: Morris, C. (2020, February 11). Understanding the role of cobalt in batteries. Design News. https://www.designnews.com/electronics/understanding-the-role-of-cobalt-in-batteries</p>
+                <p>Slide 1: Loffman, R. (2023, February 22). Rubber Production in Africa. Oxford Research Encyclopedia of African History.</p>
+                <p>Slide 2 Quote Source: Franck, L. (1924). RECENT DEVELOPMENTS IN THE BELGIAN CONGO. Journal of the Royal Society of Arts, 72(3745), 711–724. http://www.jstor.org/stable/41356728</p>
+                <p>Slide 2 Data Source: Padilla, A. D., Otarod, Donya (Contractor), Deloach-Overton, S. W., Kemna, Ryan (Contractor) F, Freeman, P. A., Wolfe, Erica (Contractor) R, Bird, Laurence (Contractor) R, Gulley, A. L., Trippi, M. H., Dicken, C., Hammarstrom, J. M., & Brioche, A. S. (2021). Compilation of Geospatial Data (GIS) for the Mineral Industries and Related Infrastructure of Africa [Data set]. U.S. Geological Survey. https://doi.org/10.5066/P97EQWXP</p>
+                <p>Slide 3: Aquino A. Njini Felix. (2024, March 22). Congo overtakes Peru in copper output, still behind in exports. Reuters. https://www.reuters.com/markets/commodities/congo-overtakes-peru-copper-output-still-behind-exports-2024-03-22/</p>
+                <p>Slide 4: Mund, K. (2023, July 25). The dark history Oppenheimer didn't show. Wired. https://www.wired.com/story/the-dark-history-oppenheimer-didnt-show/</p>
+                <p>Slide 6: Reid, S. A. (2023, November 6). The Lumumba plot: The secret history of the CIA and a Cold War assassination. The New Yorker. https://www.newyorker.com/magazine/2023/11/06/the-lumumba-plot-the-secret-history-of-the-cia-and-a-cold-war-assassination</p>
+                <p>Slide 7: Kara, S. (2023). Cobalt red: how the blood of the Congo powers our lives. First edition. New York, St. Martin's Press.</p>
+                <p>Slide 8: Ghimire, S. (June 20, 2024). Africa's largest mini-grid to provide affordable and sustainable electricity in DRC. MIGA. https://www.miga.org/story/africas-largest-mini-grid-provide-affordable-and-sustainable-electricity-drc</p>
+                <p>Slide 9: The Faraday Institution. (2023, January). Faraday Insights #7: The role of batteries in the energy transition. The Faraday Institution. https://www.faraday.ac.uk/wp-content/uploads/2023/01/Faraday_Insights_7_Jan23_Final.pdf</p>
+            </article>
         </div>
     </main>
-    <!-- Leaflet Script -->
-     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
-        <script type = "module" src="js/index.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="js/index.js"></script>
 </body>
+</html>
 </html>

@@ -1,10 +1,31 @@
+/* =================================================================
+   GLOBAL STYLES
+   ================================================================= */
+
 html, body {
-    height: 100%;
-    margin: 0; /* Remove default margin to avoid white space */
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    margin: 0;
+    border-width: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    scroll-behavior: smooth;
 }
 
+/* Typography */
+h1, h2 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+h4 {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Animations */
 @keyframes textflow {
     0% {
         opacity: 0;
@@ -15,21 +36,12 @@ html, body {
         transform: translateX(0);
     }
 }
-h1, h2 {
-      font-family: "Inter", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 700;
-      font-style: normal;
-}
 
-h4 {
-      font-family: "Quicksand", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-}
+/* =================================================================
+   TITLE SECTION
+   ================================================================= */
 
-#title-container{
+#title-container {
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -38,7 +50,7 @@ h4 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image: linear-gradient(rgba(235, 199, 149, 0.8),rgb(40 43 48 / 80%)), url('img/titleimage.jpg');
+    background-image: linear-gradient(rgba(235, 199, 149, 0.8), rgb(40 43 48 / 80%)), url('img/titleimage.jpg');
     flex-direction: column;
     background-size: cover;
     background-position: center;
@@ -46,27 +58,178 @@ h4 {
 
 #title {
     font-size: 4em;
-    color:aliceblue;
+    color: aliceblue;
     background-color: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 8px;
     animation-name: textflow;
     animation-duration: 3s;
 }
 
 #subtitle {
     font-size: 2em;
-    color:aliceblue;
+    color: aliceblue;
     background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     margin-bottom: 1rem;
     animation-name: textflow;
     animation-duration: 2s;
     font-style: italic;
 }
-#map {
-    height: 100vh;
-    width: 100vw;}
+
+/* =================================================================
+   FIXED ELEMENTS (IMAGE AND MAP)
+   ================================================================= */
+
+.image-container {
+    position: fixed;
+    left: 2rem;
+    top: 2rem;
+    width: 400px;
+    height: 400px;
+    z-index: 5;
+    overflow: hidden;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+#story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
 
 #map-container {
     height: 100vh;
-    width: 100vw;
-    position: sticky;
+    width: 100%; 
+    position: fixed;
+    z-index: 1;
+    top: 0;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* =================================================================
+   UNIFIED SLIDE SECTION
+   ================================================================= */
+
+.slide-section {
+    position: relative;
+    background-image: linear-gradient(rgba(235, 199, 149, 0.8), rgb(40 43 48 / 80%));
+    min-height: 900vh; /* Accommodates both image and map slides */
+    z-index: 15;
+}
+
+/* =================================================================
+   SLIDE STYLES BY TYPE
+   ================================================================= */
+
+/* Image slides styling */
+.slide[data-type="image"] {
+    margin: 80vh 2rem 80vh auto;
+    padding: 2rem;
+    box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.5);
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: black;
+    max-width: 25rem;
+    width: 25rem;
+}
+
+/* Map slides styling */
+.slide[data-type="map"] {
+    margin: 100vh 2rem 100vh auto;
+    padding: 2rem;
+    box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.5);
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: black;
+    max-width: 25rem;
+    width: 25rem;
+    overflow: hidden;
+}
+
+/* =================================================================
+   MAP SLIDE SPECIFIC ELEMENTS
+   ================================================================= */
+
+.mapimagecont {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.mapimagecont .gallery-img {
+    height: auto;
+    width: 100%;
+}
+
+#sources {
+    text-overflow: clip;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* =================================================================
+   SHARED SLIDE STYLES
+   ================================================================= */
+
+.slide h2 {
+    font-family: "Inter", sans-serif;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.slide p {
+    font-family: "Quicksand", sans-serif;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* =================================================================
+   RESPONSIVE VISIBILITY
+   ================================================================= */
+
+/* Hide image container when not in image slide area */
+.image-container {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-container.active {
+    opacity: 1;
+}
+
+/* Hide map when not in map slide area */
+#map-container {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#map-container.active {
+    opacity: 1;
+}
+
+/* =================================================================
+   UTILITY CLASSES
+   ================================================================= */
+
+.hidden {
+    display: none;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
 }
