@@ -29,30 +29,33 @@ class SlideDeck {
 
   /**
    * ### initializeVisibility
-   * Set initial container visibility based on the first slide
+   * Set initial container visibility - start with image and map hidden
    */
   initializeVisibility() {
-    if (this.slides.length > 0) {
-      const firstSlide = this.slides[0];
-      if (this.isImageSlide(firstSlide)) {
-        this.showImageContainer();
-        this.hideMapContainer();
-      } else {
-        this.showMapContainer();
-        this.hideImageContainer();
-      }
-    }
+    // Start with both containers hidden
+    this.hideImageContainer();
+    this.hideMapContainer();
+    
+    // Only show the appropriate container when we sync to first slide
   }
 
   /**
    * ### setupImageElement
-   * Configure the image element with appropriate styling
+   * Configure the image element with appropriate styling for smooth transitions
    */
   setupImageElement() {
-    this.imageElement.style.transition = 'opacity 0.3s ease-in-out';
+    // Enhanced transition properties for smoother appearance
+    this.imageElement.style.transition = 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out';
     this.imageElement.style.objectFit = 'cover';
     this.imageElement.style.width = '100%';
     this.imageElement.style.height = '100%';
+    this.imageElement.style.transformOrigin = 'center center';
+    
+    // Set up the parent container for smoother transitions
+    if (this.imageElement.parentElement) {
+      this.imageElement.parentElement.style.transition = 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out';
+      this.imageElement.parentElement.style.overflow = 'hidden';
+    }
   }
 
   /**
@@ -112,23 +115,30 @@ class SlideDeck {
 
   /**
    * ### updateImage
-   * Update the displayed image (for image slides)
+   * Update the displayed image with enhanced smooth transitions
    */
   updateImage(imageSrc) {
     if (!this.imageElement || !imageSrc) return;
 
-    // Fade out current image
-    this.imageElement.style.opacity = '0.3';
+    // Create a smooth fade and subtle scale transition
+    this.imageElement.style.opacity = '0..3';
     
     // Load new image
     const img = new Image();
     img.onload = () => {
-      this.imageElement.src = imageSrc;
-      this.imageElement.style.opacity = '1';
+      // Small delay to ensure the fade out is visible
+      setTimeout(() => {
+        this.imageElement.src = imageSrc;
+        // Animate back to normal state with smooth transition
+        this.imageElement.style.opacity = '1';
+      }, 100);
     };
     img.onerror = () => {
       console.warn(`Failed to load image: ${imageSrc}`);
-      this.imageElement.style.opacity = '1';
+      // Restore visibility even if image fails to load
+      setTimeout(() => {
+        this.imageElement.style.opacity = '1';
+      }, 100);
     };
     img.src = imageSrc;
   }
@@ -206,12 +216,16 @@ class SlideDeck {
 
   /**
    * ### syncImageToSlide
-   * Update image for an image slide
+   * Update image for an image slide with smooth transitions
    */
   syncImageToSlide(slide) {
-    if (!this.imageElement) return;
+    if (!this.imageElement) {
+      console.warn('No image element found');
+      return;
+    }
     
     const imageSrc = this.getSlideImageSrc(slide);
+    console.log('Syncing image to slide:', slide.id, 'Image src:', imageSrc);
     this.updateImage(imageSrc);
   }
 
@@ -221,12 +235,12 @@ class SlideDeck {
    */
   async syncToSlide(slide) {
     if (this.isMapSlide(slide)) {
-      // Show map, hide image
+      // Show map, hide image with smooth transition
       this.showMapContainer();
       this.hideImageContainer();
       await this.syncMapToSlide(slide);
     } else if (this.isImageSlide(slide)) {
-      // Show image, hide map
+      // Show image, hide map with smooth transition
       this.showImageContainer();
       this.hideMapContainer();
       this.syncImageToSlide(slide);
@@ -235,21 +249,27 @@ class SlideDeck {
 
   /**
    * ### showImageContainer
-   * Show the image container
+   * Show the image container with smooth transition
    */
   showImageContainer() {
     if (this.imageElement && this.imageElement.parentElement) {
       this.imageElement.parentElement.classList.add('active');
+      // Ensure visibility is set immediately
+      this.imageElement.parentElement.style.visibility = 'visible';
+      // Don't animate the container opacity - let individual images handle their own transitions
     }
   }
 
   /**
    * ### hideImageContainer
-   * Hide the image container
+   * Hide the image container with smooth transition
    */
   hideImageContainer() {
     if (this.imageElement && this.imageElement.parentElement) {
       this.imageElement.parentElement.classList.remove('active');
+      // Don't animate container opacity - individual images handle their transitions
+      // Hide visibility immediately since images will fade themselves
+      this.imageElement.parentElement.style.visibility = 'hidden';
     }
   }
 
@@ -355,7 +375,7 @@ class SlideDeck {
     let i;
     for (i = 0; i < this.slides.length; i++) {
       const slidePos =
-          this.slides[i].offsetTop - scrollPos + windowHeight * 0.7;
+          this.slides[i].offsetTop - scrollPos + windowHeight/10;
       if (slidePos >= 0) {
         break;
       }
