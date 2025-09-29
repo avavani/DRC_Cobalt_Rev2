@@ -149,7 +149,7 @@ class SlideDeck {
    */
   async getSlideFeatureCollection(slide) {
     try {
-      const response = await fetch(`../data/${slide.id}.geojson`);
+      const response = await fetch(`./data/${slide.id}.geojson`);
       const data = await response.json();
       return data;
     } catch {
